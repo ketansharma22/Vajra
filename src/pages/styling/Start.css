@@ -1,5 +1,5 @@
-#wrapper{
-    background-color: rgb(88, 158, 88);
+#wrapperstart{
+    background: radial-gradient(circle at -8.9% 51.2%, rgb(141, 91, 44) 0%, rgb(186, 214, 9)15.9%, rgba(208, 255, 0, 0.751) 15.9%, rgb(255, 163, 77) 24.4%, rgb(56, 215, 44) 24.5%, rgb(48, 123, 48) 66%);
     width: 100vw;
     height: 100vh;
     display: flex;
@@ -10,18 +10,19 @@
 }
 #heart{
     top: -45px;
-    left:49px;
+    left:51px;
     position: absolute;
     width: 230px;
 }
 #hands{
     width: 350px;
-
     position: relative;
 }
+
 #logo{
     position: relative;
     top:30px
+    user-select: none;
 }
 
 #text{
@@ -40,4 +41,9 @@ button{
 button:hover{
     background-color: greenyellow;
     color: black;
+}
+h1{
+    margin-top: -50px;
+    color: rgb(15, 13, 13);
+    user-select: none;
 }

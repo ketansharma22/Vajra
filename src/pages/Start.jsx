@@ -5,7 +5,7 @@ import './styling/Start.css'
 import { Link } from 'react-router-dom'
 function Start() {
   return (
-    <div id='wrapper'>
+    <div id='wrapperstart'>
         <div id='logo'>
             <img id='heart' src={heart} />
             <img id='hands' src={hands} />

@@ -1,10 +1,10 @@
 import React from 'react'
-import  './sytling/Login.css'
+import './styling/Login.css'
 
 function Login() {
   return (
-    <div id="wrapper" >
-      
+    <div id="wrapperlogin" >
+      hello
     </div>
   )
 }

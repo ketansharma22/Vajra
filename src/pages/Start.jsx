@@ -1,6 +1,5 @@
 import React from 'react'
-import heart from './logoheart.png'
-import hands from './logovajarahands.png'
+import heart from './heart.png'
 import './styling/Start.css'
 import { Link } from 'react-router-dom'
 function Start() {
@@ -8,7 +7,6 @@ function Start() {
     <div id='wrapperstart'>
         <div id='logo'>
             <img id='heart' src={heart} />
-            <img id='hands' src={hands} />
         </div>
         
         <div id='text'>
@@ -17,7 +15,7 @@ function Start() {
             <p>VAJRA predicts,protects and save lives..."</p>
         </div>
         <Link to="/login" >
-            <button>Get Started</button>
+            <button id='startbutton'>Get Started</button>
         </Link>
     </div>
   )

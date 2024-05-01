@@ -1,27 +1,17 @@
 #wrapperstart{
-    background: radial-gradient(circle at -8.9% 51.2%, rgb(141, 91, 44) 0%, rgb(186, 214, 9)15.9%, rgba(208, 255, 0, 0.751) 15.9%, rgb(255, 163, 77) 24.4%, rgb(56, 215, 44) 24.5%, rgb(48, 123, 48) 66%);
-    width: 100vw;
+    background-image: linear-gradient(to right top, #2b302e, #374e47, #3f6f65, #429186, #3db5ab, #33c6b9, #24d8c7, #00ead4, #00ecc7, #00eeb6, #00efa3, #0df08d);    width: 100vw;
     height: 100vh;
     display: flex;
     align-items: center;
     flex-direction: column;
     justify-content: space-around;
-    position: relative;
 }
 #heart{
-    top: -45px;
-    left:51px;
-    position: absolute;
     width: 230px;
-}
-#hands{
-    width: 350px;
-    position: relative;
 }
 
 #logo{
     position: relative;
-    top:30px
     user-select: none;
 }
 
@@ -32,13 +22,13 @@
     align-items: center;
     justify-content: center;
 }
-button{
+#startbutton{
     background-color: black;
     width: 200px;
     color: green;
     transition: all ease-in-out .4s;
 }
-button:hover{
+#startbutton:hover{
     background-color: greenyellow;
     color: black;
 }

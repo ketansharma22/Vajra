@@ -1,0 +1,72 @@
+#wrapperlogin{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column ;
+    justify-content: center;
+    align-items: center;
+}
+
+#heart{
+    width: 230px;
+}
+#loginnav{
+    display: flex;
+    justify-content: space-around;
+    width: 100vw;
+    height: 100px;
+    align-items: center;
+    margin-bottom: 200px;
+}
+form{
+    gap: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 500px;
+    
+}
+#username,#password{
+    width: 300px;
+    height: 30px;
+    background-color:rgb(48, 43, 43);
+    border-radius: 10px;
+    border: 1px solid silver;
+    color: white;
+    font-size: large;
+}
+#forgotpassword{
+    margin-left: 130px;
+}
+label{
+    color: black;
+    font: bolder;
+    font-size: large;
+    margin-right: 220px;
+}
+
+#last{
+    display: flex;
+    align-items: center;
+    width: 300px;
+    justify-content: space-between;
+}
+
+#loginbutton{
+    background-color:rgb(48, 43, 43);
+    color: whitesmoke;
+    font-size: large;
+}
+a{
+    font-size: medium;
+    transition:ease-in-out .2s;
+}
+a:hover{
+    color: rgb(48, 43, 43);
+}
+#signupbutton{
+    background-color:rgb(48, 43, 43);
+    color: whitesmoke;
+    font-size: large;   
+}

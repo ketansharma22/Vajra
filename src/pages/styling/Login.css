@@ -1,72 +1,67 @@
+*{
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+}
 #wrapperlogin{
     width: 100vw;
     height: 100vh;
     display: flex;
     flex-direction: column ;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
+    background-color: white;
 }
 
-#heart{
-    width: 230px;
-}
-#loginnav{
-    display: flex;
-    justify-content: space-around;
-    width: 100vw;
-    height: 100px;
-    align-items: center;
-    margin-bottom: 200px;
-}
-form{
-    gap: 20px;
+#mainbox{
+    width: 500px;
+    background-color: white;
+    height: 4500px;
+    border: 1px solid silver;
+    border-radius: 7px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    width: 500px;
-    
-}
-#username,#password{
-    width: 300px;
-    height: 30px;
-    background-color:rgb(48, 43, 43);
-    border-radius: 10px;
-    border: 1px solid silver;
-    color: white;
-    font-size: large;
-}
-#forgotpassword{
-    margin-left: 130px;
+    justify-content: center;
+    gap: 10px;
+
 }
 label{
-    color: black;
-    font: bolder;
     font-size: large;
-    margin-right: 220px;
 }
-
-#last{
-    display: flex;
-    align-items: center;
-    width: 300px;
-    justify-content: space-between;
+#email{
+    width: 450px;
+    align-items: baseline;
 }
-
+#password{
+    width: 450px;
+    align-items: baseline;
+}
+input{
+    width: 450px;
+    height: 40px;
+    border-radius:5px ;
+    border: 1px solid silver    ;
+}
 #loginbutton{
-    background-color:rgb(48, 43, 43);
-    color: whitesmoke;
-    font-size: large;
+    width: 450px;
+    height: 40px;
+    border-radius: 5px;
+    background-color: rgb(135, 201, 241);
+    color: white;
 }
-a{
-    font-size: medium;
-    transition:ease-in-out .2s;
+#loginbutton:hover{
+    color: black;
+    background-color:  rgb(104, 149, 176);
 }
-a:hover{
-    color: rgb(48, 43, 43);
+#loginheart{
+    
+    width: 150px;
+    height: 130px;
 }
-#signupbutton{
-    background-color:rgb(48, 43, 43);
-    color: whitesmoke;
-    font-size: large;   
+#donthaveacc{
+    width: 500px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom:90px ;
 }

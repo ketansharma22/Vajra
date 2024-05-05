@@ -1,38 +1,74 @@
-import React from 'react'
-import heart from './heart.png'
-import './styling/Signup.css'
-import beat from './health.jpg'
-import { Link } from 'react-router-dom'
+import React, { useState } from "react";
+import heart from "./heart.png";
+import "./styling/Signup.css";
+import beat from "./health.jpg";
+import { Link } from "react-router-dom";
+import {useAuth} from '../context/Authcontext'
 
 function Signup() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [passwordConfirm, setPasswordConfirm] = useState("");
+  const {signup} =useAuth()
+  function submithandler(e){
+    signup(email,password)
+  }
   return (
-    <div id="wrappersignup" style={{ backgroundImage: `url(${beat})` }} >
-      <nav id='signupnav'>
-        <div id='heartbox'>
-          <img  id="heart" src={heart}></img>
-        </div>
-        <div>
-        <Link to='/login'>
-          <button id='loginbutton'>Login?</button></Link>
-        </div>
-      </nav>
-      <div>
-        <form>
+    <div id="wrappersignup">
+      <Link to='/'>
+        <img id="signupheart" src={heart} />
+      </Link>
 
-          <label > Username</label>
-          <input type='text' id='username' placeholder='Username...' />
-          <label>Password</label>
-          <input type='password' id='password' placeholder='Password...' />
-          <div id='last'>
-           <button id='signupbutton'>Signup</button>
-           <Link to='/login'>
-           <a href='#'>Already have an account ?</a>
-           </Link>
-          </div>
-        </form>
+      <div id="mainbox">
+        <h1>Sign Up</h1>
+
+        <div id="email">
+          <label htmlFor={email}>Email</label>
+          <br />
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => {
+              setEmail(e.target.value);
+            }}
+          />
+        </div>
+
+        <div id="password">
+          <label htmlFor={password}>Password</label>
+          <br />
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => {
+              setPassword(e.target.value);
+            }}
+          />
+        </div>
+
+        <div id="passwordconfirm">
+          <label htmlFor={passwordConfirm}>Confirm Password</label>
+          <br />
+          <input
+            type="password"
+            value={passwordConfirm}
+            onChange={(e) => {
+              setPasswordConfirm(e.target.value);
+            }}
+          />
+        </div>
+
+        <br />
+
+        <button type="submit" id="signupbutton" onClick={submithandler}>
+          Sign Up
+        </button>
+      </div>
+      <div id="alreadyhaveacc">
+        Already have an account ?<Link to="/login">Log In</Link>
       </div>
     </div>
-  )
+  );
 }
 
-export default Signup
+export default Signup;

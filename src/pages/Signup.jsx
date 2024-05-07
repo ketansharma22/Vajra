@@ -1,37 +1,58 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
+import { Link } from "react-router-dom";
+import { useAuth } from '../context/Authcontext.jsx';
+import MuiAlert from "@material-ui/lab/Alert";
 import heart from "./heart.png";
 import "./styling/Signup.css";
-import beat from "./health.jpg";
-import { Link } from "react-router-dom";
-import {useAuth} from '../context/Authcontext.jsx'
+
+function Alert(props) {
+  return <MuiAlert elevation={2} {...props} />;
+}
 
 function Signup() {
+  const emailRef = useRef();
+  const passRef = useRef();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirm, setPasswordConfirm] = useState("");
-  const {signup} =useAuth()
-  function submithandler(e){
+  const { signup } = useAuth();
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  async function submithandler(e) {
     e.preventDefault();
-    signup(email,password)
+    if (password !== passwordConfirm) {
+      return setError("Passwords do not match");
+    }
+
+    try {
+      setError("");
+      setLoading(true);
+      await signup(email, password);
+    } catch (error) {
+      setError("Failed to create an account: " + error.message);
+    }
+    setLoading(false);
   }
+
   return (
     <div id="wrappersignup">
       <Link to='/'>
-        <img id="signupheart" src={heart} />
+        <img id="signupheart" src={heart} alt="Heart" />
       </Link>
-
-      <div id="mainbox">
+      
+      <form id="mainbox" onSubmit={submithandler}>
         <h1>Sign Up</h1>
-
+        {error !== "" && <Alert severity="error">{error}</Alert>}
+        
         <div id="email">
           <label htmlFor={email}>Email</label>
           <br />
           <input
+            ref={emailRef}
             type="email"
             value={email}
-            onChange={(e) => {
-              setEmail(e.target.value);
-            }}
+            onChange={(e) => setEmail(e.target.value)}
           />
         </div>
 
@@ -39,11 +60,10 @@ function Signup() {
           <label htmlFor={password}>Password</label>
           <br />
           <input
+            ref={passRef}
             type="password"
             value={password}
-            onChange={(e) => {
-              setPassword(e.target.value);
-            }}
+            onChange={(e) => setPassword(e.target.value)}
           />
         </div>
 
@@ -53,20 +73,19 @@ function Signup() {
           <input
             type="password"
             value={passwordConfirm}
-            onChange={(e) => {
-              setPasswordConfirm(e.target.value);
-            }}
+            onChange={(e) => setPasswordConfirm(e.target.value)}
           />
         </div>
 
         <br />
 
-        <button type="submit" id="signupbutton" onClick={submithandler}>
+        <button type="submit" id="signupbutton">
           Sign Up
         </button>
-      </div>
+      </form>
+
       <div id="alreadyhaveacc">
-        Already have an account ?<Link to="/login">Log In</Link>
+        Already have an account? <Link to="/login">Log In</Link>
       </div>
     </div>
   );

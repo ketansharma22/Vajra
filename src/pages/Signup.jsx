@@ -3,7 +3,7 @@ import heart from "./heart.png";
 import "./styling/Signup.css";
 import beat from "./health.jpg";
 import { Link } from "react-router-dom";
-import {useAuth} from '../context/Authcontext'
+import {useAuth} from '../context/Authcontext.jsx'
 
 function Signup() {
   const [email, setEmail] = useState("");
@@ -11,6 +11,7 @@ function Signup() {
   const [passwordConfirm, setPasswordConfirm] = useState("");
   const {signup} =useAuth()
   function submithandler(e){
+    e.preventDefault();
     signup(email,password)
   }
   return (

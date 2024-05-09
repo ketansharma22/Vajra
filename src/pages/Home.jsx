@@ -4,13 +4,25 @@ import { Link, useNavigate } from "react-router-dom";
 import MuiAlert from "@material-ui/lab/Alert";
 import { auth } from "../firebase";
 import "./styling/Home.css";
-import health from './health.jpg'
+import health from "./health.jpg";
 function Alert(props) {
   return <MuiAlert elevation={2} {...props} />;
 }
 export default function Home() {
   const [error, setError] = useState("");
   const { currentUser, logout } = useAuth();
+  const [user, setUser] = useState({
+    Name: "",
+    Gender: "",
+    Age: "",
+    Diabetic: "",
+    SystolicBP: "",
+    DiastolicBP: "",
+    Cholestrol: "",
+    BMI: "",
+    HeartRate: "",
+    Glucode: "",
+  });
   const navigate = useNavigate();
 
   async function handleLogout() {
@@ -32,16 +44,12 @@ export default function Home() {
           <h1>Welcome.. {currentUser.email}</h1>
         </div>
 
-        <div id="button"> 
+        <div id="button">
           <button onClick={handleLogout}>Logout</button>
           <Link to="/updateprofile">Update Profile</Link>
         </div>
       </nav>
-      <div id="main">
-        {error && <Alert severity="error">{error}</Alert>}
-
-       
-      </div>
+      <div id="main">{error && <Alert severity="error">{error}</Alert>}</div>
     </div>
   );
 }

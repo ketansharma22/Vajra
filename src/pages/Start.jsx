@@ -14,7 +14,7 @@ function Start() {
             <p>"Guarding hearts with foresight:</p>
             <p>VAJRA predicts,protects and save lives..."</p>
         </div>
-        <Link to="/login" >
+        <Link to="/signup" >
             <button id='startbutton'>Get Started</button>
         </Link>
     </div>

@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from '../context/Authcontext.jsx';
 import MuiAlert from "@material-ui/lab/Alert";
 import heart from "./heart.png";
@@ -10,6 +10,7 @@ function Alert(props) {
 }
 
 function Signup() {
+  const navigate=useNavigate()
   const emailRef = useRef();
   const passRef = useRef();
   const [email, setEmail] = useState("");
@@ -29,6 +30,7 @@ function Signup() {
       setError("");
       setLoading(true);
       await signup(email, password);
+      navigate("/home")
     } catch (error) {
       setError("Failed to create an account: " + error.message);
     }
@@ -43,12 +45,13 @@ function Signup() {
       
       <form id="mainbox" onSubmit={submithandler}>
         <h1>Sign Up</h1>
-        {error !== "" && <Alert severity="error">{error}</Alert>}
+        {error && <Alert severity="error">{error}</Alert>}
         
         <div id="email">
           <label htmlFor={email}>Email</label>
           <br />
           <input
+          required
             ref={emailRef}
             type="email"
             value={email}
@@ -60,6 +63,8 @@ function Signup() {
           <label htmlFor={password}>Password</label>
           <br />
           <input
+          required
+          minLength="6"
             ref={passRef}
             type="password"
             value={password}
@@ -71,6 +76,8 @@ function Signup() {
           <label htmlFor={passwordConfirm}>Confirm Password</label>
           <br />
           <input
+          required
+          minLength="6"
             type="password"
             value={passwordConfirm}
             onChange={(e) => setPasswordConfirm(e.target.value)}
@@ -79,7 +86,7 @@ function Signup() {
 
         <br />
 
-        <button type="submit" id="signupbutton">
+        <button type="submit" id="signupbutton" disabled={loading} >
           Sign Up
         </button>
       </form>

@@ -9,6 +9,7 @@ import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import PrivateRoute from './components/Privateroute.jsx';
 import ForgotPassword from './pages/ForgotPassword.jsx';
 import UpdateProfile from './pages/UpdateProfile.jsx';
+import Profile from './pages/Profile.jsx';
 
 function App() {
   return(
@@ -23,6 +24,7 @@ function App() {
             <Route path='/home' element={<PrivateRoute />} />
             <Route path='/forgotpassword' element={<ForgotPassword/>} />
             <Route path='/updateprofile' element={<UpdateProfile/>} />
+            <Route path='/profile' element={<Profile/>} />
 
         </Routes>
         </Router>

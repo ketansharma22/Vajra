@@ -60,7 +60,7 @@ export default function Home() {
     const docref=doc(db,"users",em)
     const docSnap=await getDoc(docref)
 
-    console.log(docSnap.data());
+    console.log(docSnap.data()) ;
 
     // await setDoc(doc(db,"users",em),user)
     setUser({

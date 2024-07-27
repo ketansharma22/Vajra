@@ -10,7 +10,7 @@ function Start() {
         </div>
         
         <div id='text'>
-            <h1>VAJRA</h1>
+            <h1 style={{color:"black"}}>VAJRA</h1>
             <p>"Guarding hearts with foresight:</p>
             <p>VAJRA predicts,protects and save lives..."</p>
         </div>
